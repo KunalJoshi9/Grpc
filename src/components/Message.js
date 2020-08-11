@@ -3,7 +3,7 @@ import React from 'react';
 
 
 function Message(props) {
-
+    console.log(props.username);
     const DUMMY_DATA = [
         {
             senderId: 'kunal',

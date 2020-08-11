@@ -1,3 +1,17 @@
+
+.login{
+  flex:1;
+  text-align:left;
+  height: 400px;
+  width:400px;
+  margin-right: auto; 
+  margin-left: auto; 
+}
+
+.Home__home{
+  flex:1;
+  text-align:center;
+}
 :root {
   --main-color: #5ea3d0;
   --secondary-color: white;

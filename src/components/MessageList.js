@@ -21,29 +21,40 @@ function MessageList(props) {
   }, [url]);
 */
 const [values, setValues] = useState({ hits: [], url:'' });
+
     const DUMMY_DATA = [
         {
-            senderId: 'kunal',
-            text: 'Hey, howz it going?'
+            username: 'kunal',
+            message: 'Hey, howz it going?'
         },
         {
-            senderId: 'Shru',
-            text: 'I am great, how about you?'
+            username: 'Shru',
+            message: 'I am great, how about you?'
         },
         {
-            senderId: 'kunal',
-            text: 'Fine, thanks for asking!?'
+            username: 'kunal',
+            message: 'Fine, thanks for asking!?'
         }
     ]
-    const val = props.valueFromParent.hits;
-    const url = props.valueFromParent.url;
+    //const val = props.valueFromParent.hits;
+   // const url = props.valueFromParent.url;
+    const screenMessage = props.valueFromParent;
+    const username = props.username;
+
     useEffect(() => {
-        console.log(url);
-        if(countProps(val)>0 && url!=values.url){
-            setValues({hits: val, url: url});
-            console.log(val);
+        console.log(screenMessage);
+        for (var p in screenMessage) {
+            console.log(p.username);
         }
-     }, [val]);
+     }, [screenMessage]);
+
+    // useEffect(() => {
+    //     console.log(url);
+    //     if(countProps(val)>0 && url!=values.url){
+    //         setValues({hits: val, url: url});
+    //         console.log(val);
+    //     }
+    //  }, [val]);
     console.log(values);
      function countProps(obj) {
         var count = 0;
@@ -55,10 +66,16 @@ const [values, setValues] = useState({ hits: [], url:'' });
     
     return (
         <div className = "message-list">
-         {
+         {/* {
             values.hits.map(item => (
-                    <Message key={item.objectID} username={item.title} title ={item.url}></Message>
-            ))} 
+                    <Message key={username} username={username} title ={screenMessage}></Message>
+            ))}  */}
+            {
+                
+                screenMessage.map(item => (
+            <Message username={item.username} title ={item.message}></Message>
+            ))
+            }
         </div>
     );
   }

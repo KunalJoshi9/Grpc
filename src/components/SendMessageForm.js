@@ -3,7 +3,7 @@ import useForm from "./useForm";
 
 function SendMessageForm(props) {
 
-    const { url, data, message, handleChange, handleSubmit } = useForm(login);
+    const { url, data, message, screenMessage, handleChange, handleSubmit } = useForm(login, props);
     //const [data, setData] = useState({ hits: [] });
     
     function login() {
@@ -14,6 +14,11 @@ function SendMessageForm(props) {
         console.log(data);
         props.functionCallFromParent(data);
      }, [data]);
+
+     useEffect(() => {
+        console.log(screenMessage);
+        props.functionCallFromParent(screenMessage);
+     }, [screenMessage]);
 
     const DUMMY_DATA = [
         {
